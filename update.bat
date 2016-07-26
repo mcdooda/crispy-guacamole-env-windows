@@ -9,6 +9,6 @@ cd project
 cmake .. -G "Visual Studio 14 2015 Win64"
 cd ..
 devenv project/crispy-guacamole.sln /build Debug /project project/crispy-guacamole.vcxproj /projectconfig Debug
-cp ./dll/* ./project/Debug
+copy .\dll\* .\project\Debug
 echo READY
 pause
