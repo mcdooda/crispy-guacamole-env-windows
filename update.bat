@@ -1,7 +1,11 @@
 cd crispy-guacamole
+git stash
 git pull origin master
+git stash pop
 cd flat-engine
+git stash
 git pull origin master
+git stash pop
 cd ../..
 rm -r project
 mkdir project
