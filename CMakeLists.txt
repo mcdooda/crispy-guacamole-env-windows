@@ -30,6 +30,8 @@ foreach(_source IN ITEMS ${src})
     source_group("${_source_path_msvc}" FILES "${_source}")
 endforeach()
 
+add_definitions(-DFLAT_DEBUG)
+
 add_executable(
     crispy-guacamole
     ${src}
