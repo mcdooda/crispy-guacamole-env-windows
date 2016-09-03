@@ -22,6 +22,7 @@ os.chdir('crispy-guacamole')
 err1 = False
 err2 = False
 res = subprocess.Popen('git stash',stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out, err = res.communicate()
 progress += 6
 printProgress(6)
 
@@ -36,16 +37,19 @@ progress += 6
 printProgress(6)
 
 res = subprocess.Popen('git stash pop',stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out, err = res.communicate()
 
 progress += 6
 printProgress(6)
 res = subprocess.Popen('git submodule update',stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out, err = res.communicate()
 
 progress += 6
 printProgress(6)
 os.chdir('flat-engine')
 
 res = subprocess.Popen('git stash',stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out, err = res.communicate()
 progress += 6
 printProgress(6)
 
@@ -86,19 +90,23 @@ out, err = res.communicate()
 
 
 os.chdir('../..')
-shutil.rmtree('project')
-os.makedirs('project')
-os.chdir('project')
+shutil.rmtree('./project')
+os.makedirs('./project')
+os.chdir('./project')
 
 res = subprocess.Popen('cmake .. -G "Visual Studio 14 2015 Win64"',stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+out, err = res.communicate()
 
 os.chdir('..')
 try:
     res = subprocess.Popen('devenv project/crispy-guacamole.sln /build Debug /project project/crispy-guacamole.vcxproj /projectconfig Debug',stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err = res.communicate()
 
 except:
     print('error visual')
     res = subprocess.Popen('devenv project/crispy-guacamole.sln',stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err = res.communicate()
     sys.exit()
 
 src_files = os.listdir('.\dll')
