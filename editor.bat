@@ -1,3 +1,3 @@
 cd crispy-guacamole
-..\project\Debug\crispy-guacamole.exe mods/crispy-guacamole map1 -w -e
+..\project\RelWithDebInfo\crispy-guacamole.exe mods/crispy-guacamole map1 -w -e
 pause
