@@ -46,7 +46,6 @@ target_link_libraries(
     SDL2_mixer
     SDL2_ttf
     opengl32
-    glu32
     glew32
 )
 
