@@ -39,7 +39,7 @@ add_executable(
 
 target_link_libraries(
     crispy-guacamole
-    lua5.2
+    lua5.3
 	SDL2main
     SDL2
     SDL2_image
