@@ -94,7 +94,7 @@ shutil.rmtree('./project')
 os.makedirs('./project')
 os.chdir('./project')
 
-res = subprocess.Popen('cmake .. -G "Visual Studio 14 2015 Win64"',stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+res = subprocess.Popen('cmake .. -G "Visual Studio 15 2017 Win64"',stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 out, err = res.communicate()
 
