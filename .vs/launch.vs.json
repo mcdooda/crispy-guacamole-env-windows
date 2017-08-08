@@ -1,0 +1,26 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "crispy-guacamole.exe",
+      "name": "game",
+      "args": [
+        "mods/crispy-guacamole map1 -w"
+      ],
+      "currentDir": "${workspaceRoot}\\crispy-guacamole"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "crispy-guacamole.exe",
+      "name": "editor",
+      "args": [
+        "-w -m mods/crispy-guacamole map1"
+      ],
+      "currentDir": "${workspaceRoot}\\crispy-guacamole"
+    }
+  ]
+}

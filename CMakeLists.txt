@@ -18,20 +18,6 @@ file(
     crispy-guacamole/flat-engine/src/*
 )
 
-#black magic, ask Tom
-foreach(_source IN ITEMS ${src})
-    if (IS_ABSOLUTE "${_source}")
-        file(RELATIVE_PATH _source_rel "${CMAKE_CURRENT_SOURCE_DIR}" "${_source}")
-    else()
-        set(source_rel "${_source}")
-    endif()
-    get_filename_component(_source_path "${_source_rel}" PATH)
-    string(REPLACE "/" "\\" _source_path_msvc "${_source_path}")
-    source_group("${_source_path_msvc}" FILES "${_source}")
-endforeach()
-
-add_definitions(-DFLAT_DEBUG)
-
 add_executable(
     crispy-guacamole
     ${src}
@@ -40,8 +26,8 @@ add_executable(
 target_link_libraries(
     crispy-guacamole
     lua5.3
-	SDL2main
     SDL2
+	SDL2main
     SDL2_image
     SDL2_mixer
     SDL2_ttf
@@ -49,3 +35,16 @@ target_link_libraries(
     glew32
 )
 
+### custom command to move dll into the build folder 
+file(GLOB copySource ${CMAKE_SOURCE_DIR}/dll/*)
+foreach(dependency ${copySource})
+	add_custom_command(TARGET crispy-guacamole
+		POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy_if_different ${dependency} $<TARGET_FILE_DIR:crispy-guacamole>
+		COMMENT "Copying dll's...\n"
+	)
+endforeach()
+
+### should be done with the install target instead
+#install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/dll DESTINATION ${CMAKE_BINARY_DIR})
+#install(DIRECTORY ${CMAKE_SOURCE_DIR}/dll DESTINATION ${CMAKE_BINARY_DIR}/crispy-guacamole/Debug/)
