@@ -31,6 +31,7 @@ foreach(_source IN ITEMS ${src})
 endforeach()
 
 add_definitions(-DFLAT_DEBUG)
+add_definitions(-DFLAT_PROFILER_ENABLED)
 
 add_executable(
     crispy-guacamole

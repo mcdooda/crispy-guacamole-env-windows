@@ -9,4 +9,3 @@ copy .\dll\* .\project\Debug
 copy .\dll\* .\project\Release
 copy .\dll\* .\project\RelWithDebInfo
 copy .\crispy-guacamole.vcxproj.user .\project
-devenv .\project\crispy-guacamole.sln
