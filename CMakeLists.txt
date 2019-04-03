@@ -50,6 +50,5 @@ target_link_libraries(
     glew32
 )
 
-set(CMAKE_CONFIGURATION_TYPES "RelWithDebInfo" CACHE STRING "" FORCE)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT crispy-guacamole)
 set_property(TARGET crispy-guacamole PROPERTY CXX_STANDARD 17)
