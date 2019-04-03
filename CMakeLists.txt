@@ -52,3 +52,7 @@ target_link_libraries(
 
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT crispy-guacamole)
 set_property(TARGET crispy-guacamole PROPERTY CXX_STANDARD 17)
+
+if(MSVC)
+    target_compile_options(crispy-guacamole PRIVATE "/MP")
+endif()
