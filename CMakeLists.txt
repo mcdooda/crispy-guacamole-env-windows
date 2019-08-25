@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.6)
 project(crispy-guacamole)
 
 include_directories(
+    crispy-guacamole/src/game
     crispy-guacamole/flat-engine/src
     include
 )
